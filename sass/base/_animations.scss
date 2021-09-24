@@ -1,0 +1,42 @@
+@keyframes moveInLeft {
+    0%{
+       opacity: 0;
+       transform:translateX(-15rem);
+    }
+    /* for animation to work: Two things have to be applied:
+       1. Animation Name;
+       2. Animation Duration */
+    /* x direction is from left to right */
+    
+    100% {
+       opacity: 1;
+       transform:translateY(0) ;
+      }
+}
+
+/* btn-animated animation */
+@keyframes moveInButton {
+   0%{
+      opacity: 0;
+      transform:translateY(15px);
+   }
+  
+   100% {
+      opacity: 1;
+      transform:translateY(0) ;
+     }
+}
+
+
+@keyframes moveInRight{
+   0%{
+      opacity: 0;
+      transform:translateX(15rem);
+   }
+   
+   
+   100% {
+      opacity: 1;
+      transform:translateY(0) ;
+     }
+}

@@ -1,0 +1,166 @@
+.card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 52rem;
+
+    &__side {
+        background-color: $color-white;
+        height: 52rem;
+        transition: all .8s ease;    
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;// this is to hide the back face of the element
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &--front {
+        background-color: $color-white;
+    } 
+
+    &--back {
+        background-color: green;
+        transform: rotateY(180deg);
+
+        &-1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+        }
+
+        &-2 {
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        }
+
+        &-3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+        }
+        
+ 
+      }
+
+    }
+   
+    &:hover &__side--front {  //.card:hover .card__side
+        transform: rotateY(-180deg); //turn the back of the card to the other direction
+    }
+
+    &:hover &__side--back {  //.card:hover .card__side
+        transform: rotateY(0); // turns it back to zero
+    }
+
+    // front-side-picture
+
+    &__picture {
+  
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        //to make clip path works in any browser prefix need to be used 
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+            url(../img/nat-5.jpg);
+        }
+
+        &--2 {
+            background-image:linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), 
+            url(../img/nat-6.jpg);
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+            url(../img/nat-7.jpg);
+        }
+    }
+ 
+    &__heading {
+        font-size: 3rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align:right;
+        color: $color-white;
+        position: absolute;
+        top:12rem;
+        right: 2rem;
+        width: 75%;
+    }
+
+    &__heading-span {
+        padding: 1.5rem 3rem;
+        box-decoration-break: clone; 
+        -webkit-box-decoration-break: clone; 
+        
+
+        &--1 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-secondary-light,.8s),
+            rgba($color-secondary-dark, .8s));
+
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-primary-light,.8s),
+            rgba($color-primary-dark, .8s));
+
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-tertiary-light,.8s),
+            rgba($color-tertiary-dark, .8s));
+
+        }
+    } 
+
+    &__details {
+        padding: 3rem;
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+
+        }
+    }
+
+    // front side styling
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align:center;
+    }
+
+    &__price-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    color: $color-white;
+
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
+    }
+} 

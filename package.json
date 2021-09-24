@@ -1,0 +1,16 @@
+{
+  "name": "css_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.14.1",
+    "sass": "^1.32.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "shehu saidu",
+  "license": "ISC"
+}

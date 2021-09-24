@@ -1,0 +1,99 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+       text-transform: uppercase;
+       text-decoration: none;
+       margin-top: 30px;
+       padding: 15px 40px;
+       display: inline-block;
+       border-radius: 100px;
+       transition: all .2s;
+       box-shadow: 0 5px 10px rgba(0,0,0,.2);
+       position: relative;
+       font-size: $default-font-size ;
+       border: none;
+    
+       /* In the Box-shadow property, the first and the second number is the color while the third is for blurring   */
+    } 
+    
+    &:hover,
+    &:focus {
+        transform: translateY(-3px);
+        /* that is to move the button up a little when hovered in the case of down we use positive number  */
+    }
+    
+    &:active {
+        transform: translateY(-1px);
+    }
+    &--white {
+        background-color: #fff;
+        color:#777;
+        
+    &::after {
+        background-color: $color-white;
+    }
+    
+    } 
+
+    &--green {
+        background-color: $color-primary;
+        color:$color-white;
+        
+        &::after {
+            background-color: $color-primary;
+        }
+    } 
+    
+    /* btn */
+    /* pseudo elements allow us to style part of an element */
+    &::after {
+         content: " ";
+         display: inline-block;
+         height: 100%;
+         width: 100%;
+         border-radius: 100px;
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: -1;     
+         transition: all .4s ;
+    }
+    
+    &--white::after {
+         background-color: #fff;
+    }
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0; /* Opacity makes the bg transparent */
+    }
+    
+    &--animated {
+        animation: moveInButton .5s ease-out 0.7s ; 
+         animation-fill-mode: backwards;
+        }
+ }
+ .btn-text {
+     &:link,
+     &:visited {
+         font-size: $default-font-size ;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2s;
+     }
+
+    &:hover{
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateZ(-2px)
+    }
+
+    &:active {
+        box-shadow: 0 0.5rem 1rem gba($color-black, .15);
+        transform: translateY(0)
+    }
+ }

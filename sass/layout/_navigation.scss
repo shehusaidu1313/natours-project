@@ -1,0 +1,156 @@
+.navigation {
+
+    &__checkbox {
+        display: none;
+
+    }
+
+    &__button {
+        background-color: #fff;
+        height: 7rem;
+        width: 7rem;
+        top: 6rem;
+        right: 6rem;
+        position: fixed;
+        border-radius: 50%;
+        z-index: 2000 ;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 1rem 3rem $color-black .3;
+    }
+
+    &__background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient($color-primary-light, $color-primary-dark );
+        z-index: 1000 ;
+        transition: transform .8s;
+
+        // transform: scale(80);
+    }
+
+    &__nav { 
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        //left : 0; so that the background appears independent of the menu background
+        z-index: 1500; 
+        opacity: 0; //to make the bg invisible
+        width: 0; // to hide the it 
+        transition: opacity .8s;
+    }
+
+    &__list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50% );
+        list-style: none;
+        text-align: center;
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    &__link  {
+        &:visited, 
+        &:link {
+        display: inline-block;
+        font-size: 3rem;
+        font-weight: 300;
+        text-decoration: none;
+        color: $color-white;
+         padding: 1rem 2rem;
+        text-transform: uppercase;
+        background-size: 230%;
+        background-image: linear-gradient(120deg, 
+                                        transparent 0%, 
+                                        transparent 50%, 
+                                        $color-white 50%);
+        transition: all .3s;
+        } 
+          
+        &:hover,
+        &:active { 
+
+            background-position: 100%; //in order to shift the background weuse the below codes
+            transform: translateX(1rem); // to shake it forward i little 
+            color: $color-primary;
+        }
+        
+    }
+
+
+
+    &__checkbox:checked ~ &__background {
+
+        transform: scale(80); // make the background appear by clicking the menu button
+    }
+
+    &__checkbox:checked ~ &__nav {
+
+        opacity: 1; // make the nave visible
+        width: 100%; // make it appear hundred percent
+    }
+
+    // Icon
+        &__icon {
+            position: relative;
+            margin-top: 3.5rem;
+            &,
+            &::before,
+            &::after {
+                width: 3rem;
+                height: 2px;
+                background-color: $color-grey-dark-3;
+                display:inline-block
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                transition: all .1s;
+            }
+
+            &::before {
+                top: -.8rem; // to move it up
+            }
+
+            &::after {
+                top: .8rem; // to it down the upper one
+            }
+        }
+
+        &__button:hover &__icon::before {
+            top: -1rem;
+        }
+
+        &__button:hover &__icon::after {
+            top: 1rem;
+        }
+
+        &__checkbox:checked + &__button &__icon {
+            background-color: transparent; // to make the center one invisible 
+        }
+
+        &__checkbox:checked + &__button &__icon::before {
+            transform: rotate(135deg);
+            top: 0;
+
+
+        }    
+        &__checkbox:checked + &__button &__icon::after {
+            transform: rotate(-135deg);
+            top: 0;
+        }
+}
+

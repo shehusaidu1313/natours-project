@@ -1,0 +1,66 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem;
+    font-size: $default-font-size;
+    padding-left: 9rem;
+    transform: skewX(-12deg);
+
+    // &>* {
+    // transform: skewX(12deg);
+    // }
+    // this select the direct child of the elements
+    // In css, transform can not apply twice in the same element
+
+    &__shape {
+       width: 15rem;
+       height: 15rem;
+       float: left;
+       shape-outside: circle(50% at 50% 50%); //Note: for this to work, the elements must be floated
+       -webkit-shape-outside: circle(50% at 50% 50%); 
+       clip-path: circle(50% at 50% 50%);     
+       -webkit-clip-path: circle(50% at 50% 50%);  
+       transform: translate(-3rem) skewX(12deg); //the translate will create a margin between the circle and the text
+       position: relative;
+    }
+
+    &__img {
+        height: 100%;
+        transform: translate(-4rem) scale(1.4);
+        backface-visibility: hidden;
+        transition: all .5s;
+    }
+
+    &__text {
+        transform: skewX(12deg);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate( -50%, 20%); //20% so that the text will go down
+        text-transform: uppercase;
+        color: $color-white;
+        font-weight: bolder;
+        text-align:center;
+        font-size: 1.7rem;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden;
+
+    }
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%); // I mistakenly use comma between the brigthness and and blur, thus make it not working
+    }
+} 
+ 
